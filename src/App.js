@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Components/Header/Header';
+import RegistrationForm from './Components/RegistrationForm/RegistrationForm';
+import About from './Components/About/About';
+//importing react bootstrap
+import { Card } from 'react-bootstrap';
+//importing react router component
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div>
+      <Header/>
+      <Switch>
+      <Route path="/" exact component={ Home } />
+      <Route path="/RegistrationForm" component={ RegistrationForm } />
+      <Route path="/About" component={ About } />
+      </Switch>
     </div>
+    </BrowserRouter>
   );
 }
 
+
+const Home = () => {
+  return(
+      <div>
+          <Card>
+          <Card.Body>
+              <Card.Title>Welcome to TO-DO!</Card.Title>
+              <Card.Text>
+              This is a to-do homepage.
+              </Card.Text>
+          </Card.Body>
+          </Card>
+      </div>
+  )
+}
 export default App;

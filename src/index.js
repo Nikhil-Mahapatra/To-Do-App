@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+//create redux store for state
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { reducer as reduxFormReducer } from 'redux-form';
+import account from './Reducers/Account';
+
+const reducer = combineReducers({
+  account,
+  form: reduxFormReducer, // mounted under "form"
+});
+const store = (window.devToolsExtension
+  ? window.devToolsExtension()(createStore)
+  : createStore)(reducer);
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

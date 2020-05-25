@@ -3,19 +3,23 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 //create redux store for state
+import { configureStore } from "@reduxjs/toolkit";
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer as reduxFormReducer } from 'redux-form';
 import account from './Reducers/Account';
+import todos from './Reducers/TodoReducer';
+import visibilityFilter from './Reducers/FilterReducer'
 
 const reducer = combineReducers({
+  todos,
+  visibilityFilter,
   account,
-  form: reduxFormReducer, // mounted under "form"
+  form: reduxFormReducer,
 });
-const store = (window.devToolsExtension
-  ? window.devToolsExtension()(createStore)
-  : createStore)(reducer);
 
+const store = configureStore({ reducer });
+console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

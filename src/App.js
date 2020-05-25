@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Components/Header/Header';
 import RegistrationForm from './Components/RegistrationForm/RegistrationForm';
 import About from './Components/About/About';
+import Todo from "./Components/Todo/todo";
 //importing react bootstrap
 import { Card } from 'react-bootstrap';
 //importing react router component
@@ -10,14 +11,15 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-    <div>
-      <Header/>
-      <Switch>
-      <Route path="/" exact component={ Home } />
-      <Route path="/RegistrationForm" component={ RegistrationForm } />
-      <Route path="/About" component={ About } />
-      </Switch>
-    </div>
+      <div>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/todo" component={Todo} />
+          <Route path="/RegistrationForm" component={RegistrationForm} />
+          <Route path="/About" component={About} />
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

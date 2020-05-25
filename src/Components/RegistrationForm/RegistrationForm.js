@@ -66,7 +66,7 @@ let RegistrationForm = props => {
                     <Button type="button" onClick={reset} variant="primary">
                       Reset Form
                     </Button>&nbsp;
-                    <Button variant="danger" type="button" onClick={() => load(data)}>Load State</Button>
+                    
                     </Form.Group>
                   </form>
                  </Card.Text>
